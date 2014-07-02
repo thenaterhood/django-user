@@ -1,0 +1,23 @@
+{% extends "user_base.html" %}
+
+{% block title %} Account Settings {% endblock %}
+
+{% block content %}
+
+{% include 'template_messages.html' %}
+
+  <div>
+
+  <h1>Manage your Account Settings</h1>
+  <ul>
+
+    <li><a href="/user/edit/">Profile Information</a></li>
+    <p>Update your name and email that are shown on your profile and that are used to show your Gravatar.</p>
+
+    <li><a href="/user/password/">Update Password</a></li>
+    <p>Change your password.</p>
+  </ul>
+
+</div>
+
+{% endblock %}

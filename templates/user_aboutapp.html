@@ -1,0 +1,77 @@
+{% extends "user_base.html" %}
+
+{% block title %} About Application {% endblock %}
+
+{% block content %}
+
+{% include 'template_messages.html' %}
+
+  <div>
+
+  <h1>About the Application</h1>
+
+  <p>This is a very simple Django application that provides basic user 
+  	facilities, including registration, user profiles, a login page, and account 
+  	settings. The UI and functionality is fairly bare, with the hopes that 
+  	that will make it easier to customize and integrate into other projects.</p>
+
+  <h2>Features</h2>
+  <ul>
+  	<li>Login page with messages</li>
+  	<li>Profile pages with friendly URLs and Gravatar integration</li>
+  	<li>Password change functionality</li>
+  	<li>Username and email update functionality</li>
+  	<li>Registration page with input validation</li>
+  </ul>
+
+  <h2>How to Install</h2>
+  <p>Well, if you're seeing this page then you were probably successful. 
+  	If by some chance you weren't, look at the README.md file.</p>
+
+  <h2>How to Use</h2>
+  <p>This application covers the basics of account and profile functionality 
+  	that most sites provide. It can be extended and reworked to add features 
+  	and to better fit the needs of the project it will be integrated into.</p>
+
+  <h3>Data passed to pages:</h3>
+  	<ul>
+  		<li>user class instance (passed under the name 'user')</li>
+  		<li>form instances where input is accepted, passed under the name "form"
+  			<ul>
+  				<li>The form classes can be found in the forms.py file</li>
+  				<li>These forms may be useful to you to use in other apps as well</li>
+  			</ul>
+  		</li>
+  		<li>Gravatar profile picture URL passed under the name "gravatar_url"</li>
+  		<li>Gravatar profile information, passed under the name "gravatar_profile"
+  			<ul>
+  				<li>You may want to look into Gravatar's API for information on how to 
+  					use this object.</li>
+  			</ul>
+  		</li>
+  	</ul>
+
+  <h3>Provided URLs</h3>
+    <p>You should be able to simply include the user urls.py file in your project's main 
+  	urls.py file and be good to go. It is expected that you include it so that all /user 
+  	urls and the /accounts/login page are routed to the user app. You can do otherwise, 
+  	but your mileage may vary. The listed URLs do not stem from your root (/) URL but 
+  	from the URL you route to the user app, again preferably /user.</p>
+  	<ul>
+  		<li>/about: this about page</li>
+  		<li>/profile/&lt;username&gt;: user profile pages</li>
+  		<li>/login: user login page</li>
+  		<li>/register: user registration page</li>
+  		<li>/welcome: successful login landing page</li>
+  		<li>/settings: list of links to different user settings</li>
+  		<li>/edit: name and email edit page</li>
+  		<li>/password: password change page</li>
+  		<li>/logout: logs the user out</li>
+  	</ul>
+
+
+
+
+</div>
+
+{% endblock %}

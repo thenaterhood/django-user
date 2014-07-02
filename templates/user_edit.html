@@ -1,0 +1,39 @@
+{% extends "user_base.html" %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block content %}
+
+	{% if messages %}
+    	{% for message in messages %}
+			{% if message.tags == 'error' %}
+    			<div class="alert alert-danger">
+			{% elif message.tags == 'warning' %}
+				<div class="alert alert-warning">
+			{% else %}
+				<div class="alert alert-info">
+			{% endif %}
+							
+    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+    			{{ message }}
+    		</div>
+    	{% endfor %}
+	{% endif %}
+
+	<h1>Update Your Profile</h1>
+
+	<form id="registerForm" action="/user/edit/" method="post">{% csrf_token %} <!--Pass information back to the register url through the POST method-->
+
+		{% for field in form %}
+<fieldset class="form-group">
+      {{field}}
+      <p>{{field.help_text}}</p>
+</fieldset>
+{% endfor %}
+
+		<input class="btn btn-success" type="submit" value="Save" />&nbsp;
+		<a class="btn btn-danger" href="/user/profile/{{user.username}}">Cancel</a>
+
+</form> <!--Close the form tag-->
+
+{% endblock %}

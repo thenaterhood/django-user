@@ -1,0 +1,38 @@
+{% extends "login_register_base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+	{% if form.errors %}
+		<p class="error">Sorry, that's not a valid username/password</p>
+	{% endif %}
+
+	{% if messages %}
+    	{% for message in messages %}
+			{% if message.tags == 'error' %}
+    			<div class="alert alert-danger">
+			{% elif message.tags == 'warning' %}
+				<div class="alert alert-warning">
+			{% else %}
+				<div class="alert alert-info">
+			{% endif %}
+							
+    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+    			{{ message }}
+    		</div>
+    	{% endfor %}
+	{% endif %}
+
+	<form action="/user/auth/" method="post">{% csrf_token %} <!--hidden formfield with string in it, checked when visitiing url to be valid-->
+		<input type="text" name="username" id="username" placeholder="Username" class="form-control" />
+		<br />
+		<input type="password" name="password" id="password" placeholder="Password" class="form-control" />
+
+		<br />
+		<input class="btn btn-success btn-large" type="submit" value="Login" style="border-radius: 2px;" />
+
+		<a href="/user/register/" class="btn btn-info btn-large" style="border-radius: 2px;display: inline;">Register</a>
+	</form>
+
+{% endblock %}

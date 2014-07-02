@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>Profile |{% block title %}{% endblock %}</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" media="screen">
+
+	</head>
+
+	<body>
+		<!--START OF: Login Form-->
+
+		<div class='container'>
+
+			<div class='content'>
+				<div class='row'>
+					<br />
+					<br />
+					<br />
+					<div class="well">
+
+						<div id="loginRegisterBase">
+							<h1>User Login</h1>
+							<p>A simple user login, registration, and account management django application.</p>
+						</div>
+
+
+						{% block content %}
+
+
+
+						{% endblock %}
+
+						</div>
+
+				</div>
+			</div> <!--END OF: Login Form-->
+
+		</div>
+
+
+	</body>
+
+</html>

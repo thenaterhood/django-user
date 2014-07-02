@@ -1,0 +1,91 @@
+{% extends 'user_base.html' %}
+{% block title %} {{user_profile}} {% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+		{% if messages %}
+    	{% for message in messages %}
+			{% if message.tags == 'error' %}
+    			<div class="alert alert-danger">
+			{% elif message.tags == 'warning' %}
+				<div class="alert alert-warning">
+			{% else %}
+				<div class="alert alert-info">
+			{% endif %}
+							
+    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+    			{{ message }}
+    		</div>
+    	{% endfor %}
+	{% endif %}
+
+	{% if nouser %}
+	<h1>Sorry! That username does not exist.</h1>
+	{% if anonymous %}
+	<p>Want to claim it? <a href="/user/register/">Register an Account</a></p>
+	{% endif %}
+	{% else %}
+
+	{% if request_user == user_profile %}
+
+<div class="panel panel-default">
+	<div class="panel-heading">Edit Your Information</div>
+	<div class="panel-body">
+				<p><a href="/user/edit/">Edit Account</a></p>
+				<p><a href="/user/password/">Change Password</a></p>
+
+				<p> <small>To change your profile picture and Gravatar profile, visit <a href="http://gravatar.com">Gravatar</a></small></p>
+	</div>
+</div>
+
+{% endif %}
+
+	<div class="panel panel-default">
+	<div class="panel-heading">Basic Information</div>
+	<div class="panel-body">
+
+	<img style="float:left; margin-right:10px;" src="{{gravatar_url}}" title="Profile images are retrieved from Gravatar. Visit gravatar.com to change your profile picture." /> 
+
+		<h1>{{user_profile.first_name}} {{user_profile.last_name}}</h1>
+
+				<span><strong>{{user_profile.username}}</strong></span>
+				<br />
+				<span>Joined on {{user_profile.date_joined}}</span>
+				<br />
+				<br />
+				{% if gravatar_profile %}
+				<span><em>Gravatar Profile Information:</em></span>
+				<br />
+				<span>{{gravatar_profile.entry.0.aboutMe}}</span>
+				<br />
+				{% for l in gravatar_profile.entry.0.urls %}
+
+				<a href="{{l.value}}">{{l.title}}</a>
+
+				{% endfor %}
+
+				{% endif %}
+
+	</div>
+
+</div>
+
+
+	{% endif %}
+
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+{% endblock %}
