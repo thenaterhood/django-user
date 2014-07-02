@@ -42,8 +42,7 @@ the templates folder with the filename "user_aboutapp.html"
 License
 ---------
 Included software is distributed under the BSD license. 
-See LICENSE for full license text. Files licensed under 
-the BSD License contain a line specifying so in the docblock.
+See LICENSE for full license text.  
 
 Though not required by the license terms, please consider contributing, 
 providing feedback, or simply dropping a line to say that this software 
