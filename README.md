@@ -38,3 +38,13 @@ models.
 For more information see the about page, which is linked 
 in the footer of the user pages, and can be found in 
 the templates folder with the filename "user_aboutapp.html"
+
+License
+---------
+Included software is distributed under the BSD license. 
+See LICENSE for full license text. Files licensed under 
+the BSD License contain a line specifying so in the docblock.
+
+Though not required by the license terms, please consider contributing, 
+providing feedback, or simply dropping a line to say that this software 
+was useful to you. Pull requests are always welcome.
