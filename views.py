@@ -44,10 +44,7 @@ def register_user(request):
 
             if (User.objects.filter(username=user.username).count() < 1):
 
-                servUser = ServiceUser()
                 user.save()
-                servUser.auth = user
-                servUser.save()
                 return HttpResponseRedirect('/user/login/')
 
             else:
